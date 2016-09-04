@@ -18,6 +18,23 @@ db.on('error', function(err){
 	console.log('Database Error:', err);
 })
 
+//routes
+app.get('/', function (req, res){
+	res.send("test");
+})
+
+
+app.get('/admin', function (req, res){
+	res.send("admin page");
+})
+
+app.get('/guest', function (req, res){
+	db.guests.find({}, function(err, data){
+	if (err) throw err;
+	res.send(data);
+});
+})
+
 // Listener
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
