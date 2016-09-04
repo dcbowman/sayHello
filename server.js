@@ -21,7 +21,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 //static file support, makes it accessible
-app.use(express.static('public'));
+app.use(express.static(__dirname + 'public'));
 
 
 //mongo js to hook the database to the db variable

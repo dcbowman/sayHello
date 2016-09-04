@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>sayHello</title>
-	</head>
-	<body>
-		{{{ body }}}
-	</body>
-</HTML>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	
+	<link rel="stylesheet" type="text/css" href="/css/landing-page.css">
+	
+	<!-- Bootstrap Core CSS -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+    {{!-- JQuery --}}
+	<script src="js/jquery.js"></script>
+
+	<script src="/script.js"></script>
+
+	<title>sayHello</title>
+</head>
+<body>
+	{{!-- Import header partials --}}
+	{{>header}}
+
+	{{!-- Main body content --}}
+	{{{ body }}}
+
+	{{!-- Import footer partials --}}
+	{{>footer}}
+</body>
+</html>

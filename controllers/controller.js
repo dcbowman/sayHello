@@ -1,11 +1,11 @@
 var express = require('express');
-var router = express.Router();
+var bodyParser = require('body-parser');
 var app = express();
 
 
 app.get('/', function (req, res){
-	res.render('home');
-})
+	res.render('index');
+});
 
 
 app.get('/admin', function (req, res){
