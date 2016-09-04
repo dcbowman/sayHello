@@ -1,6 +1,8 @@
 // Include Server Dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
+var logger = require('morgan'); //logs requests
+var exphbs = require('express-handlebars');
 //Database configuration
 var mongojs = require('mongojs');
 var databaseUrl = "guests";
@@ -9,6 +11,18 @@ var collections = ["guests"];
 // Create Instance of Express
 var app = express();
 var PORT = process.env.PORT || 3000; // Sets an initial port. 
+
+//configures app for morgan, body parser and handlebars
+app.use(logger('dev'));
+app.use(bodyParser.urlencoded({
+	extended:false
+	}));
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+//static file support, makes it accessible
+app.use(express.static('public'));
+
 
 //mongo js to hook the database to the db variable
 var db = mongojs(databaseUrl, collections);
@@ -19,21 +33,13 @@ db.on('error', function(err){
 })
 
 //routes
-app.get('/', function (req, res){
-	res.send("test");
-})
 
+var routes = require('./controllers/controller.js');
 
-app.get('/admin', function (req, res){
-	res.send("admin page");
-})
+app.use('/', routes);
+app.use('/admin', routes);
+app.use('/guest', routes);
 
-app.get('/guest', function (req, res){
-	db.guests.find({}, function(err, data){
-	if (err) throw err;
-	res.send(data);
-});
-})
 
 // Listener
 app.listen(PORT, function() {
