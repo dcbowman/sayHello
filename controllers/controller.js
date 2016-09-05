@@ -4,7 +4,7 @@ var app = express();
 
 
 app.get('/', function (req, res){
-	res.render('index');
+	res.render('index', {title: 'sayHello'});
 });
 
 

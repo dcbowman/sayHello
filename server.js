@@ -5,7 +5,7 @@ var logger = require('morgan'); //logs requests
 var exphbs = require('express-handlebars');
 //Database configuration
 var mongojs = require('mongojs');
-var databaseUrl = "guests";
+var databaseUrl = "sayHello";
 var collections = ["guests"];
 
 // Create Instance of Express
