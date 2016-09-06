@@ -16,8 +16,16 @@ router.get('/admin', function (req, res){
 
 //guests page
 router.get('/guest', function (req, res){
-	var guests = Guest.find();
-	res.render('guest', {title: 'sayHello', guests: guests });
+	Guest.find(function(err, docs){
+		var guestChunks = [];
+		var chunkSize = 3;
+		for(var i =0; i < docs.length; i+=chunkSize){
+			guestChunks.push(docs.slice(i, i +chunkSize));
+		}
+		res.render('guest', {title: 'sayHello', guests: guestChunks });
+
+});
+	
 });
 
 
