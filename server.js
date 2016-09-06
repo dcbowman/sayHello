@@ -4,13 +4,18 @@ var bodyParser = require('body-parser');
 var logger = require('morgan'); //logs requests
 var exphbs = require('express-handlebars');
 //Database configuration
-var mongojs = require('mongojs');
-var databaseUrl = "sayHello";
-var collections = ["guests"];
+//var mongojs = require('mongojs');
+var mongoose = require('mongoose');
+// var databaseUrl = "sayHello";
+// var collections = ["guests"];
+
 
 // Create Instance of Express
 var app = express();
 var PORT = process.env.PORT || 3000; // Sets an initial port. 
+
+//connection to database
+mongoose.connect('localhost:27017/sayHello');
 
 //configures app for morgan, body parser and handlebars
 app.use(logger('dev'));
@@ -25,12 +30,11 @@ app.use(express.static(__dirname + 'public'));
 
 
 //mongo js to hook the database to the db variable
-var db = mongojs(databaseUrl, collections);
+//var db = mongojs(databaseUrl, collections);
 
 //logs any mongodb errors
-db.on('error', function(err){
-	console.log('Database Error:', err);
-})
+//db.on('error', function(err){
+
 
 //routes
 

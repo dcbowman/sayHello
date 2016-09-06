@@ -1,22 +1,24 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var app = express();
+var router = express.Router();
+var Guest = require('../models/guests');
 
 
-app.get('/', function (req, res){
+//home page
+router.get('/', function (req, res){
 	res.render('index', {title: 'sayHello'});
 });
 
-
-app.get('/admin', function (req, res){
+//administrators page
+router.get('/admin', function (req, res){
 	res.send("admin page");
 })
 
-app.get('/guest', function (req, res){
-	db.guests.find({}).sort({table:1}, function(err, data){
-	if (err) throw err;
-	res.send(data);
+//guests page
+router.get('/guest', function (req, res){
+	var guests = Guest.find();
+	res.render('guest', {title: 'sayHello', guests: guests });
 });
-})
 
-module.exports = app;
+
+module.exports = router;
