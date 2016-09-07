@@ -1,9 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var router = express.Router();
-var Guest = require('../models/guests');
 var csrf = require('csurf');
+var passport = require('passport');
 
+var Guest = require('../models/guests');
 //csurf protection for all routes
 var csrfProtection = csrf();
 router.use(csrfProtection);
@@ -36,9 +37,15 @@ router.get('/guest/signup', function(req, res, next){
 	res.render('user/signup', {csrfToken: req.csrfToken()});
 });
 
-router.post('/user/signup', function (req, res, next){
-	res.redirect('/');
-})
+//uses passport to check for authentication, shows message if unable to log in
+router.post('/user/signup', passport.authenticate('local.signup', {
+	successRedirect:'/user/profile',
+	failureRedirect: 'user/signup',
+	failureFlash: true
+}));
 
+router.get('/profile', function(req, res, next){
+	res.render('user/profile');
+});
 
 module.exports = router;
