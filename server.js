@@ -9,10 +9,11 @@ var mongoose = require('mongoose'); //database
 var passport = require('passport'); //user authentication
 var flash = require('connect-flash'); //enables flash messages
 var validator = require('express-validator');
-var routes = require('./controllers/controller.js');
 
+//routes
 
-
+var userRoutes = require('./routes/user.js');
+var routes = require('./routes/controller.js');
 
 // Create Instance of Express
 var app = express();
@@ -48,9 +49,10 @@ app.use(express.static(__dirname + 'public'));
 
 
 //routes
+app.use('/user', userRoutes);
 app.use('/', routes);
-app.use('/admin', routes);
-app.use('/guest', routes);
+
+
 
 
 // Listener

@@ -1,7 +1,12 @@
+var express = require('express');
 var passport = require('passport');
 var Guest = require('../models/guests');
 var LocalStrategy = require('passport-local').Strategy;
 var expressValidator = require('express-validator'); 
+
+var app = express();
+app.use(passport.initialize());
+app.use(passport.session());
 
 //stores user and retrieves user from session
 passport.serializeUser(function(user, done){
