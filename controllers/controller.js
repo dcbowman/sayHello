@@ -33,14 +33,14 @@ router.get('/guest', function (req, res){
 	
 });
 //guest signup route
-router.get('/guest/signup', function(req, res, next){
+router.get('/user/signup', function(req, res, next){
 	res.render('user/signup', {csrfToken: req.csrfToken()});
 });
 
 //uses passport to check for authentication, shows message if unable to log in
-router.post('/user/signup', passport.authenticate('local.signup', {
+router.post('/guest/signup', passport.authenticate('local.signup', {
 	successRedirect:'/user/profile',
-	failureRedirect: 'user/signup',
+	failureRedirect: '/user/signup',
 	failureFlash: true
 }));
 

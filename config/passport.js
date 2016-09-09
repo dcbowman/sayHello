@@ -1,5 +1,5 @@
 var passport = require('passport');
-var user = require('../models/guests');
+var Guest = require('../models/guests');
 var LocalStrategy = require('passport-local').Strategy; 
 
 //stores user and retrieves user from session
@@ -18,7 +18,19 @@ passport.use('local.signup', new LocalStrategy({
 	usernameField: 'email',
 	passwordField: 'password',
 	passReqtoCallback: true
-}, function(req, email, password, done){
+}, function(req, email, password, done) {
+	//ensures email and password are entered correctly
+	req.checkBody('email', 'Invalid email').notEmpty().isEmail(); 
+	req.checkBody('password', 'Invalid password').notEmpty().isLength({min:4});
+	//checks for errors, part of validation package, and returns errors
+	var errors = req.validationErrors();
+	if (errors){
+		var messages =[];
+		errors.forEach(function(error){
+			messages.push(error.msg);
+		});
+		return done(null, false, req.flash('error', messages));
+	}
 	User.findOne({'email': email}, function(err, user){
 		if (err){
 			return done(err);
@@ -34,6 +46,6 @@ passport.use('local.signup', new LocalStrategy({
 				return done(err);
 			}
 			return done(null, newUser);
-		})
-	})
+		});
+	});
 }));

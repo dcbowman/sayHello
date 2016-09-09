@@ -1,7 +1,13 @@
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
 	 	<h1>Register</h1>
-	 	Validation Errors
+	 	{{#if hasErrors}}
+	 	<div class= "alert alert-danger">
+	 		{{# each messages}}
+	 			<p>{{this}}</p>
+	 		{{/each}}
+	 	</div>
+	 	{{/if}}
 	 	<form action="/guest/signup" method="post">
 	 		<div class="form-group">
 	 			<label for "email">Email</label>
@@ -11,7 +17,7 @@
 	 			<label for "password">Password</label>
 	 			<input type="password" id="password" name="password" class="form-control">
 	 		</div>
-	 		<input type="hidden" name="_csrf" value"{{ csrfToken }}">
+	 		<input type="hidden" name="_csrf" value= "{{ csrfToken }}">
 	 		<button type="submit" class="btn btn-primary">Register</button>
 	 	</form>
 	

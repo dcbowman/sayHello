@@ -25,6 +25,7 @@
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.1",
+    "express-validator": "^2.20.8",
     "handlebars": "^4.0.5",
     "mongojs": "^2.4.0",
     "mongoose": "^4.6.0",
