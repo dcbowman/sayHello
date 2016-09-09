@@ -1,6 +1,7 @@
 var passport = require('passport');
 var Guest = require('../models/guests');
-var LocalStrategy = require('passport-local').Strategy; 
+var LocalStrategy = require('passport-local').Strategy;
+var expressValidator = require('express-validator'); 
 
 //stores user and retrieves user from session
 passport.serializeUser(function(user, done){
@@ -24,9 +25,9 @@ passport.use('local.signup', new LocalStrategy({
 	req.checkBody('password', 'Invalid password').notEmpty().isLength({min:4});
 	//checks for errors, part of validation package, and returns errors
 	var errors = req.validationErrors();
-	if (errors){
+	if (errors) {
 		var messages =[];
-		errors.forEach(function(error){
+		errors.forEach(function(error) {
 			messages.push(error.msg);
 		});
 		return done(null, false, req.flash('error', messages));
@@ -49,3 +50,43 @@ passport.use('local.signup', new LocalStrategy({
 		});
 	});
 }));
+
+//sign in function
+passport.use('local.signin', new LocalStrategy({
+	usernameField: 'email',
+	passwordField: 'password',
+	passReqtoCallback: true
+}, function(req, email, password, done) {
+   //ensures email and password are entered correctly
+	req.checkBody('email', 'Invalid email').notEmpty().isEmail(); 
+	req.checkBody('password', 'Invalid password').notEmpty();
+	//checks for errors, part of validation package, and returns errors
+	var errors = req.validationErrors();
+	if (errors) {
+		var messages =[];
+		errors.forEach(function(error) {
+			messages.push(error.msg);
+		});
+		return done(null, false, req.flash('error', messages));
+	}
+	User.findOne({'email': email}, function(err, user){
+		if (err){
+			return done(err);
+		}
+		//checks to ensure the user has signed up
+		if (!user){
+			return done(null, false, {message: 'No guest found'});
+		}
+		if(!user.validPassword(password)){
+			return done(null, false, {message: 'No guest found'});
+		}
+			return done(null, user);
+		});
+
+}));
+
+
+
+
+
+

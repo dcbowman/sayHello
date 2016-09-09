@@ -34,7 +34,8 @@ router.get('/guest', function (req, res){
 });
 //guest signup route
 router.get('/user/signup', function(req, res, next){
-	res.render('user/signup', {csrfToken: req.csrfToken()});
+	var messages = req.flash('error');
+	res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
 
 //uses passport to check for authentication, shows message if unable to log in
@@ -47,5 +48,21 @@ router.post('/guest/signup', passport.authenticate('local.signup', {
 router.get('/profile', function(req, res, next){
 	res.render('user/profile');
 });
+
+router.get('/user/signin', function(req, res, next){
+	var messages = req.flash('error');
+	res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messags.length> 0});
+});
+
+router.post('user/signin', passport.authenticate('local.signin', {
+ 	successRedirect:'/user/profile',
+	failureRedirect: '/user/signin',
+	failureFlash: true
+}));
+
+
+
+
+
 
 module.exports = router;
