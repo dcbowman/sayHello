@@ -18,7 +18,7 @@ var routes = require('./routes/controller.js');
 
 // Create Instance of Express
 var app = express();
-var PORT = process.env.PORT || 3000; // Sets an initial port. 
+var PORT = process.env.MONGODB_URI || 3000; // Sets an initial port. 
 
 //connection to database
 mongoose.connect('localhost:27017/sayHello');
