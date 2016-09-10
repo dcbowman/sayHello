@@ -30,6 +30,7 @@ app.set('view engine', 'handlebars');
 
 //configures app for morgan, body parser
 app.use(logger('dev'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended:false
 	}));
@@ -47,11 +48,22 @@ app.use(passport.session());
 //static file support, makes it accessible
 app.use(express.static(__dirname + 'public'));
 
+//sets global variable to ensure that pages that need authentication are protected
+app.use(function(req, res, next){
+	res.locals.login =req.isAuthenticated();
+	next();
+})
 
 //routes
 app.use('/user', userRoutes);
 app.use('/', routes);
 
+//fowards 404 error to handler
+app.use(function(req, res, next){
+	var err = new Error('Not found');
+	err.status = 404;
+	next(err);
+});
 
 
 

@@ -16,6 +16,11 @@ router.get('/profile', function(req, res, next){
 	res.render('user/profile');
 });
 
+router.get('/logout', function(req, res, next){
+	req.logut();
+	 res.redirect('/');
+});
+
 //does not require guests to log in, all functions below do not require being logged in
 router.use('/', notLoggedIn, function(req, res, next){
 	next();
