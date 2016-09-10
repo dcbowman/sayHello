@@ -1,24 +1,27 @@
-<!-- Table Row -->
-<div class="row">
-<div class="col-lg-12">
-<h2 class="page-header">Say Hello to:</h2>
-</div>
-
+<div class="container" id="team" name="team">
+    <br>
+    <br>
+    <br>
+    <div class="row white centered">
+        <h1 class="centered">Say Hello to:</h1>
+        <hr>
+        <br>
+        <br>
+        
 {{# each guests}}
-   <div class = "row">
+   <div class = "row white centered">
    {{# each this}}
-   	 <div class="col-xs-6 col-md-3 text-center">
-   	 <div class = thumbnail >
-   	 <img class = "img-circle img-responsive img-center" src = "{{this.imagePath}}" alt= "...">
-     <div class = "caption">
-   		 <h3>{{this.firstName}}{{this.lastName}}</h3>
-          <small>Position Here</small>
-          <p><img src ="../img/linkedin.png" a href="{{this.linkedin}}" class="btn btn-primary" role="button"></p>
-          </div>
-      </div>
-   	</div>
-  </div>
+   	 <div class="col-lg-3 centered">
+     <img class="img img-circle" src="{{this.imagePath}}" height="120px" width="120px" alt="">
+          <br>
+          <h4><b>{{this.firstName}}{{this.lastName}}</b></h4>
+          <a href="{{this.linkedin}}" ><img src="img/linkedin.png" height = "20px" width="20px"></a>
+          <p>position</p>
+          <p>Table number: {{this.table}}</p>
+      </div><!-- col-lg-3 -->
+   
+  </div><!--row-->
 {{/each}}
-</div>
+</div><!--container-->
 {{/each}}
 
