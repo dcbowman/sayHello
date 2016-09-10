@@ -18,7 +18,11 @@ var routes = require('./routes/controller.js');
 
 // Create Instance of Express
 var app = express();
-var PORT = process.env.MONGODB_URI || 3000; // Sets an initial port. 
+//var POST = process.env.MONGODB_URI || 3000; // Sets an initial port. 
+
+//heroku:
+db_url = process.env.MONGOHQ_URL || mongodb:heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456.mlab.com:29456/heroku_3cqlgkm3
+db = mongoose.connect(db_url)
 
 //connection to database
 mongoose.connect('localhost:27017/sayHello');
