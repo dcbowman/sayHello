@@ -118,6 +118,7 @@ margin-left: -15px;
 .navbar-default {
 border-color: transparent;
 background-color: #dadada;
+
 }
 
 
@@ -271,8 +272,8 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-	background: url(../img/header_bg.jpg) no-repeat center top;
-	margin-top: -50px;
+	background: url(../img/networking.jpeg) no-repeat center top;
+	margin-top: 50px;
 	padding-top:120px;
 	text-align:center;
 	background-attachment: relative;
