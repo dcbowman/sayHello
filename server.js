@@ -1,11 +1,12 @@
 // Include Server Dependencies
 var express = require('express');
+var path = require('path');
+var logger = require('morgan'); //logs requests
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var logger = require('morgan'); //logs requests
 var exphbs = require('express-handlebars'); //handlebars
-var session = require('express-session');
 var mongoose = require('mongoose'); //database
+var session = require('express-session');
 var passport = require('passport'); //user authentication
 var flash = require('connect-flash'); //enables flash messages
 var validator = require('express-validator');
@@ -46,13 +47,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //static file support, makes it accessible
-app.use(express.static(__dirname + 'public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //sets global variable to ensure that pages that need authentication are protected
 app.use(function(req, res, next){
-	res.locals.login =req.isAuthenticated();
+	res.locals.login = req.isAuthenticated();
 	next();
-})
+});
 
 //routes
 app.use('/user', userRoutes);
