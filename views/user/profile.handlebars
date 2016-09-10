@@ -1,0 +1,26 @@
+<div class="container" id="team" name="team">
+    <br>
+    <br>
+    <br>
+    <div class="row white centered">
+        <h1 class="centered">Your table: #here </h1>
+        <hr>
+        <br>
+        <br>
+        
+{{# each guests}}
+   <div class = "row white centered">
+   {{# each this}}
+   	 <div class="col-lg-3 centered">
+     <img class="img img-circle" src="{{this.imagePath}}" height="120px" width="120px" alt="">
+          <br>
+          <h4><b>{{this.firstName}}{{this.lastName}}</b></h4>
+          <a href="{{this.linkedin}}" ><img src="img/linkedin.png" height = "20px" width="20px"></a>
+          <p>position</p>
+          <p>Table number: {{this.table}}</p>
+      </div><!-- col-lg-3 -->
+   
+  </div><!--row-->
+{{/each}}
+</div><!--container-->
+{{/each}}

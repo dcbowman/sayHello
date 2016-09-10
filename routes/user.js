@@ -12,8 +12,8 @@ app.use(passport.session());
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
-router.get('/profile', function(req, res, next){
-	res.render('user/profile');
+router.get('/table', function(req, res, next){
+	res.render('profile');
 });
 
 router.get('/logout', function(req, res, next){
@@ -56,7 +56,7 @@ router.get('logout', function(req, res, next){
 	 res.redirect('/');
 });
 
-router.get('/profile', isLoggedIn, function(req, res, next){
+router.get('/table', isLoggedIn, function(req, res, next){
 	res.render('user/profile');
 });
 

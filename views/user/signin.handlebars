@@ -1,16 +1,7 @@
-<div id="greywrap">
-			<div class="row">
-				<div class="col-lg-4 callout">
-					<span class="icon icon-stack"></span>
-					<h2>sayHello</h2>
-					<p>Enter Video Header here </p>
-				</div><!-- col-lg-4 -->
 
-			</div>
-</div>
-
-<div class="row">
-	<div class="col-md-4 col-md-offset-4">
+<section class="section-divider textdivider divider4">
+	<div class="container">
+	
 	 	<h1>Sign Up</h1>
 	 	{{#if hasErrors}}
 	 	<div class= "alert alert-danger">
@@ -19,8 +10,8 @@
 	 		{{/each}}
 	 	</div>
 	 	{{/if}}
-	 	<form action="/user/signin" method="post">
-	 		<div class="form-group">
+	 	<form action="/user/signin" method="post" class="form-horizontal" role="form">
+	 		<div class="col-lg-5 form-group">
 	 			<label for "email">Email</label>
 	 			<input type="text" id="email" name="email" class="form-control">
 	 		</div>
@@ -34,3 +25,4 @@
 	
 	</div>
 </div>
+</div

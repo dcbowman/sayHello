@@ -14,7 +14,7 @@ router.get('/', function (req, res){
 
 //administrators page
 router.get('/admin', function (req, res){
-	res.send("admin page");
+	res.render('admin');
 })
 
 //guests page
