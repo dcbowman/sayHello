@@ -18,11 +18,11 @@ var routes = require('./routes/controller.js');
 
 // Create Instance of Express
 var app = express();
-//var POST = process.env.MONGODB_URI || 3000; // Sets an initial port. 
+var PORT = process.env.MONGODB_URI || 3000; // Sets an initial port. 
 
 //heroku:
-db_url = process.env.MONGOHQ_URL || mongodb:heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456.mlab.com:29456/heroku_3cqlgkm3
-db = mongoose.connect(db_url)
+//db_url = process.env.MONGOHQ_URL || mongodb:heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456.mlab.com:29456/heroku_3cqlgkm3
+//db = mongoose.connect(db_url)
 
 //connection to database
 mongoose.connect('localhost:27017/sayHello');
@@ -52,6 +52,7 @@ app.use(passport.session());
 
 //static file support, makes it accessible
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/assets')));
 
 //sets global variable to ensure that pages that need authentication are protected
 app.use(function(req, res, next){

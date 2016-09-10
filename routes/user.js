@@ -13,7 +13,7 @@ var csrfProtection = csrf();
 router.use(csrfProtection);
 
 router.get('/table', function(req, res, next){
-	res.render('profile');
+	res.render('user/profile');
 });
 
 router.get('/logout', function(req, res, next){
