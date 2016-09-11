@@ -20,12 +20,33 @@ var routes = require('./routes/controller.js');
 var app = express();
 var PORT = process.env.MONGODB_URI || 3000; // Sets an initial port. 
 
-//heroku:
+//------heroku database config--------
+//define local MongoDB URI
+var databaseUrl = 'mongodb://localhost/sayHello';
+if(process.env.MONGODB_URI){
+	mongoose.connect(process.env.MONGODB_URI);
+}
+else{
+	mongoose.connect(databaseUrl);
+}
+//-----
+
+var db = mongoose.connection;
+//show any mongoose errors
+db.on('error', function (err){
+	console.log('Mongoose Error: '' err')
+});
+
+db.once('open', function(){
+	console.log('Mongoose connection successful');
+})
+
+
 //db_url = process.env.MONGOHQ_URL || mongodb:heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456.mlab.com:29456/heroku_3cqlgkm3
 //db = mongoose.connect(db_url)
 
 //connection to database
-mongoose.connect('localhost:27017/sayHello');
+//mongoose.connect('localhost:27017/sayHello');
 //runs through the passport.js file
 require('./config/passport');
 
