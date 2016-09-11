@@ -34,7 +34,7 @@ else{
 var db = mongoose.connection;
 //show any mongoose errors
 db.on('error', function (err){
-	console.log('Mongoose Error: '' err')
+	console.log('Mongoose Error: ', err);
 });
 
 db.once('open', function(){
