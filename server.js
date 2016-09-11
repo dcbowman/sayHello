@@ -29,6 +29,7 @@ mongoose.connect('localhost:27017/sayHello');
 //runs through the passport.js file
 require('./config/passport');
 
+
 //handlebars configuration
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');

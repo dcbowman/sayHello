@@ -3,9 +3,7 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 var csrf = require('csurf');
 
-
 var Guest = require('../models/guests');
-
 
 //home page
 router.get('/', function (req, res){
@@ -14,10 +12,18 @@ router.get('/', function (req, res){
 
 //administrators page
 router.get('/admin', function (req, res){
-	res.render('admin');
-})
+	Guest.find(function(err, docs){
+		var guestChunks = [];
+		var chunkSize = 3;
+		for(var i =0; i < docs.length; i+=chunkSize){
+			guestChunks.push(docs.slice(i, i +chunkSize));
+		}
+		res.render('admin', {title: 'sayHello', guests: guestChunks });
+	
+});
+});
 
-//guests page
+//individual table page
 router.get('/guest', function (req, res){
 	Guest.find(function(err, docs){
 		var guestChunks = [];
@@ -26,9 +32,7 @@ router.get('/guest', function (req, res){
 			guestChunks.push(docs.slice(i, i +chunkSize));
 		}
 		res.render('guest', {title: 'sayHello', guests: guestChunks });
-
 });
-	
 });
 
 
