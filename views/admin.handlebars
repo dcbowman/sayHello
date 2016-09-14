@@ -7,53 +7,53 @@
 			</div><!-- container -->
 			</section>
 <section class="section-divider">
-	<div class="row-md-4">
-	<form action ="/guest/create" method="post" class="form-horizontal" role="form">
+	<div class="col-lg-6">
+	<form action ="/guest/submit" method="post" class="form-horizontal" role="form">
 	<div class="form-group">
-	 <label for="firstName" class="col-lg-4 control-label"></label>
-			<div class="col-lg-4">
+	 <label for="firstName" class="row-med-4 control-label"></label>
+			<div class="row-med-4">
 			<input type="text" class="form-control" id="firstName" placeholder="First Name">
 			</div>
 			</div>
 	 <div class="form-group">
-     <label for="text1" class="col-lg-4 control-label"></label>
-			<div class="col-lg-4">
+     <label for="text1" class="col-med-4 control-label"></label>
+			<div class="col-med-4">
 	        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
 			</div>
 			</div>
 	 <div class="form-group">
-	 <label for="email" class="col-lg-4 control-label"></label>
-			<div class="col-lg-4">
+	 <label for="email" class="col-med-4 control-label"></label>
+			<div class="col-med-4">
 			<input type="email" class="form-control" id="email" placeholder="Email">
 			</div>
 			</div>
 	 <div class="form-group">
-	 <label for="position" class="col-lg-4 control-label"></label>
-		    <div class="col-lg-4">
+	 <label for="position" class="col-med-4 control-label"></label>
+		    <div class="col-med-4">
 			<input type="text" class="form-control" id="position" placeholder="Position">
 			</div>
 		    </div>
 	 <div class="form-group">
-	 <label for="table" class="col-lg-4 control-label"></label>
-			<div class="col-lg-4">
+	 <label for="table" class="col-med-4 control-label"></label>
+			<div class="col-med-4">
 			<input type="text" class="form-control" id="table" placeholder="Table">
 			</div>
 			</div>
 	<div class="form-group">
-	 <label for="linkedin" class="col-lg-4 control-label"></label>
-			<div class="col-lg-4">
-			<input type="text" class="form-control" id="table" placeholder="LinkedIn">
+	 <label for="linkedin" class="col-med-4 control-label"></label>
+			<div class="col-med-4">
+			<input type="text" class="form-control" id="linkedin" placeholder="LinkedIn">
 			</div>
 			</div>
      <div class="form-group">
-	 <label for="image" class="col-lg-4 control-label"></label>
-			<div class="col-lg-4">
-			<input type="text" class="form-control" id="table" placeholder="Picture">
+	 <label for="image" class="col-med-4 control-label"></label>
+			<div class="col-med-4">
+			<input type="text" class="form-control" id="image" placeholder="Picture">
 			</div>
 			</div>
 	 <div class="form-group">
-	 <div class="col-lg-4">
-		    <button type="submit" class="btn btn-success">Enter</button>
+	 <div class="col-med-4">
+		    <button type="submit" id="addGuest" a href="/submit" class="btn btn-success">Enter</button>
 			</div>
 			</div>
 	</form><!-- form -->
@@ -61,8 +61,8 @@
 
 
  	
-   <div class = "table responsive row-md-8">
- 	<table class= "table table-striped">
+   <div class = "table responsive row-md-8" id="list">
+ 	<table class= "table table-striped" id="adminList">
  	<h1> Master Guest List</h2>	
  	<thead>
  	<th>First Name</th>
