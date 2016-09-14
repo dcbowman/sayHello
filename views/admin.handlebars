@@ -7,57 +7,85 @@
 			</div><!-- container -->
 			</section>
 <section class="section-divider">
-	<div class="col-md-4 col-md-offset-4">
-	<form action ="" method="post" class="form-horizontal" role="form">
+	<div class="row-md-4">
+	<form action ="/guest/create" method="post" class="form-horizontal" role="form">
 	<div class="form-group">
 	 <label for="firstName" class="col-lg-4 control-label"></label>
-			<div class="col-lg-10">
+			<div class="col-lg-4">
 			<input type="text" class="form-control" id="firstName" placeholder="First Name">
 			</div>
 			</div>
-			   <div class="form-group">
-						    <label for="text1" class="col-lg-4 control-label"></label>
-						    <div class="col-lg-10">
-						      <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label for="email" class="col-lg-4 control-label"></label>
-						    <div class="col-lg-10">
-						      <input type="email" class="form-control" id="firstName" placeholder="Email">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label for="firstName" class="col-lg-4 control-label"></label>
-						    <div class="col-lg-10">
-						      <input type="text" class="form-control" id="position" placeholder="Position">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <div class="col-lg-10">
-						      <button type="submit" class="btn btn-success">Enter</button>
-						    </div>
-						  </div>
-					   </form><!-- form -->
+	 <div class="form-group">
+     <label for="text1" class="col-lg-4 control-label"></label>
+			<div class="col-lg-4">
+	        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+			</div>
+			</div>
+	 <div class="form-group">
+	 <label for="email" class="col-lg-4 control-label"></label>
+			<div class="col-lg-4">
+			<input type="email" class="form-control" id="email" placeholder="Email">
+			</div>
+			</div>
+	 <div class="form-group">
+	 <label for="position" class="col-lg-4 control-label"></label>
+		    <div class="col-lg-4">
+			<input type="text" class="form-control" id="position" placeholder="Position">
+			</div>
+		    </div>
+	 <div class="form-group">
+	 <label for="table" class="col-lg-4 control-label"></label>
+			<div class="col-lg-4">
+			<input type="text" class="form-control" id="table" placeholder="Table">
+			</div>
+			</div>
+	<div class="form-group">
+	 <label for="linkedin" class="col-lg-4 control-label"></label>
+			<div class="col-lg-4">
+			<input type="text" class="form-control" id="table" placeholder="LinkedIn">
+			</div>
+			</div>
+     <div class="form-group">
+	 <label for="image" class="col-lg-4 control-label"></label>
+			<div class="col-lg-4">
+			<input type="text" class="form-control" id="table" placeholder="Picture">
+			</div>
+			</div>
+	 <div class="form-group">
+	 <div class="col-lg-4">
+		    <button type="submit" class="btn btn-success">Enter</button>
+			</div>
+			</div>
+	</form><!-- form -->
 					   
-</div>
-</section>
 
-<section class="section-divider">
-<h1> Master Guest List</h2>        
-{{# each guests}}
-   <div>
-   {{# each this}}
-   	 <div class="col-lg-1 centered">
-     <img class="img img-circle" src="{{this.imagePath}}" height="120px" width="120px" alt="">
-          <br>
-          <h4><b>{{this.firstName}}{{this.lastName}}</b></h4>
-          <p>position</p>
-          <p>Table number: {{this.table}}</p>
-      </div><!-- col-lg-3 -->
-   
-  </div><!--row-->
-{{/each}}
-</div><!--container-->
-{{/each}}
+
+ 	
+   <div class = "table responsive row-md-8">
+ 	<table class= "table table-striped">
+ 	<h1> Master Guest List</h2>	
+ 	<thead>
+ 	<th>First Name</th>
+ 	<th>Last Name</th>
+ 	<th>Position</th>
+ 	<th>Table</th>
+ 	</thead>
+ 	<tbody>
+ 	{{# each guests}}
+ 	<tr>
+ 	<td>{{firstName}}<td>
+ 	<td>{{lastName}}</td>
+ 	<td>{{position}}</td>
+    <td>{{table}}</td>
+    </tr>
+    {{/each}}
+    </tbody>
+    </table>
+
+
+	<div id = "buttons">
+	<button id="tablesort">Sort by Table</button>
+	</div> 
+</div>
+
 </section>
