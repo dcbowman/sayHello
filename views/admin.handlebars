@@ -6,64 +6,72 @@
 				<p>Please enter your guests information.</p>
 			</div><!-- container -->
 			</section>
-<section class="section-divider row-lg-12">
-	<div class="col-lg-3">
-	<form action ="/guest/submit" method="post" class="form-horizontal" role="form">
+
+<div class="container">
+
+<div class= "row">
+	<div class="col-lg-6">
+
+
+	<p>
+	<form class="form-horizontal" role= "form" form action ="/guest/submit" method="post">
 	<div class="form-group">
-	 <label for="firstName" class="row-med-4 control-label"></label>
-			<div class="row-med-4">
+	 <label for="firstName" class="col-lg-4 control-label"></label>
+			<div class="col-lg-10">
 			<input type="text" class="form-control" id="firstName" placeholder="First Name">
 			</div>
 			</div>
 	 <div class="form-group">
-     <label for="text1" class="col-med-4 control-label"></label>
-			<div class="col-med-4">
+     <label for="lastName" class="col-lg-4 control-label"></label>
+			<div class="col-lg-10">
 	        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
 			</div>
 			</div>
 	 <div class="form-group">
-	 <label for="email" class="col-med-4 control-label"></label>
-			<div class="col-med-4">
+	 <label for="email" class="col-lg-4 control-label"></label>
+			<div class="col-lg-10">
 			<input type="email" class="form-control" id="email" placeholder="Email">
 			</div>
 			</div>
 	 <div class="form-group">
-	 <label for="position" class="col-med-4 control-label"></label>
-		    <div class="col-med-4">
+	 <label for="position" class="col-lg-4 control-label"></label>
+		    <div class="col-lg-10">
 			<input type="text" class="form-control" id="position" placeholder="Position">
 			</div>
 		    </div>
 	 <div class="form-group">
-	 <label for="table" class="col-med-4 control-label"></label>
-			<div class="col-med-4">
+	 <label for="table" class="col-lg-4 control-label"></label>
+			<div class="col-lg-10">
 			<input type="text" class="form-control" id="table" placeholder="Table">
 			</div>
 			</div>
 	<div class="form-group">
-	 <label for="linkedin" class="col-med-4 control-label"></label>
-			<div class="col-med-4">
+	 <label for="linkedin" class="col-lg-4 control-label"></label>
+			<div class="col-lg-10">
 			<input type="text" class="form-control" id="linkedin" placeholder="LinkedIn">
 			</div>
 			</div>
      <div class="form-group">
-	 <label for="image" class="col-med-4 control-label"></label>
-			<div class="col-med-4">
+	 <label for="imagePath" class="col-lg-4 control-label"></label>
+			<div class="col-lg-10">
 			<input type="text" class="form-control" id="image" placeholder="Picture">
 			</div>
 			</div>
 	 <div class="form-group">
-	 <div class="col-med-4">
+	 <div class="col-lg-10">
 		    <button type="submit" id="addGuest" a href="/submit" class="btn btn-success">Enter</button>
 			</div>
 			</div>
-	</form><!-- form -->
-					   
-
+	</form><!-- form -->		   
+ 	</p>
+ 	</div>
 
  	
-   <div class = "table responsive row-md-8" id="list">
- 	<table class= "table table-striped" id="adminList">
- 	<h1> Master Guest List</h2>	
+   <div class = "col-lg-6" id="list">
+ 	<p>
+ 	<table class= "table table-striped table-responsive" id="adminList">
+ 	<h3 class="centered"> Master Guest List</h3>
+ 	<br>	
  	<thead>
  	<th>First Name</th>
  	<th>Last Name</th>
@@ -86,6 +94,9 @@
 	<div id = "buttons">
 	<button id="tablesort">Sort by Table</button>
 	</div> 
-</div>
 
+</p>
+</div>
+</div>
+</div>
 </section>

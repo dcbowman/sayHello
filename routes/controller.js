@@ -35,8 +35,17 @@ router.get('/admin', function (req, res){
 
 //inserts into database guest information from admin form
 router.post('/guest/submit', function(req, res, next){
-	db.guests.update()
+	db.guests.insert({
+		"firstName": req.body.firstName,
+		"lastName": req.body.lastName,
+ 		"email": req.body.email,
+ 		"positon": req.body.position,
+ 		"table": req.body.table,
+ 		"linkedin": req.body.linkedin,
+		"imagePath": req.body.image})
 });
+
+
 
 // router.post('/guest/submit', function(req, res, next){
 // 	var guest = new Guest({
