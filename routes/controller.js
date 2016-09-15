@@ -21,30 +21,39 @@ router.get('/', function (req, res){
 
 //administrators page
 router.get('/admin', function (req, res){
-	db.guests.find( function(err, found){
-		if (err) {
+
+			res.render('admin');
+	});
+ 
+
+//inserts into database guest information from admin form
+router.post('/submit', function(req, res){
+	var guest = req.body;
+
+	db.guests.insert(guest, function(err, saved){
+		if (err){
 			console.log(err);
 		}
 		else{
-			console.log(found);
-			res.render('admin', {guests: found});
-			
+			res.send(saved);
 		}
 	});
-}); 
-
-//inserts into database guest information from admin form
-router.post('/guest/submit', function(req, res, next){
-	db.guests.insert({
-		"firstName": req.body.firstName,
-		"lastName": req.body.lastName,
- 		"email": req.body.email,
- 		"positon": req.body.position,
- 		"table": req.body.table,
- 		"linkedin": req.body.linkedin,
-		"imagePath": req.body.image})
 });
+		
 
+//Finds all entered users and sends to table
+
+router.get('/all', function(req, res) {
+
+db.guests.find(function (err,found){
+  if (err){
+    console.log(err);
+  }
+  else{
+    res.json(found);
+  }
+ });
+});
 
 
 // router.post('/guest/submit', function(req, res, next){

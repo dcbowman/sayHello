@@ -16,3 +16,4 @@ var schema = new Schema({
 //creates a model to work with 
 module.exports = mongoose.model('Guest', schema);
 
+
