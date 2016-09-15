@@ -11,7 +11,7 @@
 {{# each guests}}
    <div class = "row white centered">
    {{# each this}}
-   	 <div class="col-lg-3 centered">
+   	 <div class="col-lg-3">
      <img class="img img-circle" src="{{this.imagePath}}" height="120px" width="120px" alt="">
           <br>
           <h4><b>{{this.firstName}}{{this.lastName}}</b></h4>
@@ -24,4 +24,5 @@
 {{/each}}
 </div><!--container-->
 {{/each}}
+</div>
 

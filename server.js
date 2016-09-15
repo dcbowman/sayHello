@@ -6,10 +6,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars'); //handlebars
 var mongoose = require('mongoose'); //database
+var mongojs = require('mongojs'); //database
 var session = require('express-session');
 var passport = require('passport'); //user authentication
 var flash = require('connect-flash'); //enables flash messages
 var validator = require('express-validator');
+
+//database configuration
+var databaseUrl = "sayHello";
+var collections = ["guests"];
+
+// use mongojs to hook the database to the db variable 
+var db = mongojs(databaseUrl, collections);
 
 //routes
 
@@ -31,14 +39,14 @@ else{
 }
 //-----
 
-var db = mongoose.connection;
+//var db = mongoose.connection;
 //show any mongoose errors
 db.on('error', function (err){
-	console.log('Mongoose Error: ', err);
+	console.log('Mongojs Error: ', err);
 });
 //confirms database connection
 db.once('open', function(){
-	console.log('Mongoose connection successful');
+	console.log('Mongojs connection successful');
 })
 
 

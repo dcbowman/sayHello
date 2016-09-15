@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
+var mongojs = require('mongojs');
 
 var app = express();
 app.use(passport.initialize());
@@ -12,9 +13,20 @@ app.use(passport.session());
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
-router.get('/table', function(req, res, next){
-	res.render('user/profile');
-});
+//connects to database schema
+//var Guest = require('../models/guests');
+
+//database configuration
+var databaseUrl = "sayHello";
+var collections = ["guests"];
+
+
+// use mongojs to hook the database to the db variable 
+var db = mongojs(databaseUrl, collections);
+
+// router.get('/table', function(req, res, next){
+// 	res.render('user/profile');
+// });
 
 router.get('/logout', function(req, res, next){
 	req.logut();
@@ -56,8 +68,17 @@ router.get('logout', function(req, res, next){
 	 res.redirect('/');
 });
 
-router.get('/table', isLoggedIn, function(req, res, next){
-	res.render('user/profile');
+router.get('/table', function(req, res, next){
+	db.guests.find({'table':1}).forEach(function(err, found){
+		if (err) {
+			console.log(err);
+		}
+		else{
+			console.log(found);
+			res.render('user/profile', {guests: found});
+			
+		}
+	});
 });
 
 module.exports = router;
