@@ -21,8 +21,7 @@ router.get('/', function (req, res){
 
 //administrators page
 router.get('/admin', function (req, res){
-
-			res.render('admin');
+ res.render('admin');
 	});
  
 
@@ -41,7 +40,7 @@ router.post('/submit', function(req, res){
 });
 		
 
-//Finds all entered users and sends to table
+//Finds all entered users and sends json 
 
 router.get('/all', function(req, res) {
 
@@ -55,42 +54,6 @@ db.guests.find(function (err,found){
  });
 });
 
-
-// router.post('/guest/submit', function(req, res, next){
-// 	var guest = new Guest({
-// 		firstName: req.body.firstName,
-// 		lastName: req.body.lastName,
-// 		email: req.body.email,
-// 		//positon: req.body.position,
-// 		table: req.body.table,
-// 		linkedin: req.body.linkedin,
-// 		imagePath: req.body.image
-
-// 	});//end of new Guest
-// 	Guest.create(function(err, post, next){
-// 		if (err){
-// 			console.log(err);
-// 			res.send({
-// 				message: 'Error: guest not saved'
-// 			})
-// 	}else
-// 	// res.send({
-// 	// 	message:'Guest saved!'
-// 	// });
-// 	console.log("Guest Saved!");
-	
-// 	Guest.find({}, function(err, found){
-// 		if (err) {
-// 			console.log(err);
-// 		}
-// 		else{
-// 			console.log(found);
-// 			res.render('admin', {guests: found});
-// 			};
-		
-// 	});//end of guest.find
-// });//end of guest.create
-// });//end of router
 
 //all guests table page
 router.get('/guest', function (req, res){

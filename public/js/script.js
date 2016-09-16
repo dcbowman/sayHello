@@ -16,7 +16,7 @@ $('#addGuest').on('click', function(){
   })
   .done(function(data){
     console.log(data);
-    getguests();
+    getGuests();
     $('#firstName').val("");
     $('#lastName').val("");
     $('#email').val("");
@@ -26,8 +26,7 @@ $('#addGuest').on('click', function(){
     $('#image').val("");
   }
   );
-  return false;
-});
+ 
 
 
 function getGuests(){
@@ -39,5 +38,7 @@ function getGuests(){
     $('#masterList').prepend('<tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Table</th></tr>');
   });
 }
+
+
 
 getGuests();
