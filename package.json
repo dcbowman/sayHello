@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/dcbowman/sayHello/issues"
   },
+  "engines": {
+    "node": "4.1.1"
+  },
   "homepage": "https://github.com/dcbowman/sayHello#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
