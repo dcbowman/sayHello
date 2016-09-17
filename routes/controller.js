@@ -11,9 +11,6 @@ var collections = ["guests"];
 // use mongojs to hook the database to the db variable 
 var db = mongojs(databaseUrl, collections);
 
-//var Guest = require('../models/guests');
-
-
 //home page
 router.get('/', function (req, res){
 	res.render('index', {title: 'sayHello'});

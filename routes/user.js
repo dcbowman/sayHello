@@ -4,6 +4,7 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 var mongojs = require('mongojs');
+var LocalStrategy = require('passport-local').Strategy;
 
 var app = express();
 app.use(passport.initialize());
@@ -13,8 +14,6 @@ app.use(passport.session());
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
-//connects to database schema
-//var Guest = require('../models/guests');
 
 //database configuration
 var databaseUrl = "sayHello";
@@ -53,8 +52,9 @@ router.post('/signup', passport.authenticate('local.signup', {
 
 
 router.get('/signin', function(req, res, next){
+	res.render('guest');
 	var messages = req.flash('error');
-	res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messags.length> 0});
+	res.render('guest', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messags.length> 0});
 });
 
 router.post('/signin', passport.authenticate('local.signin', {
@@ -68,9 +68,16 @@ router.get('logout', function(req, res, next){
 	 res.redirect('/');
 });
 
-router.get('/guest', function (req, res, next){
-	res.send('/guest');
-})
+// router.get('/table/:email', function (req, res){
+// 	db.guests.find({'email': (req.params.email)}, function
+// 		if (err){
+// 			console.log(err);
+// 		}else{
+
+// 		}
+// 		)
+
+// })
 
 router.get('/table', function(req, res, next){
 	db.guests.find({'table':1}).forEach(function(err, found){

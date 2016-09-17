@@ -1,8 +1,11 @@
 var express = require('express');
+var methodOverride = require('method-override');
+var bodyParser = require('body-parser');
 var passport = require('passport');
 var Guest = require('../models/guests');
 var LocalStrategy = require('passport-local').Strategy;
-var expressValidator = require('express-validator'); 
+var expressValidator = require('express-validator');
+ 
 
 var app = express();
 app.use(passport.initialize());
