@@ -39,4 +39,17 @@ function getGuests(){
   });
 }
 
+  
+
+function sessionCleanup() {
+    sessionStore.all(function(err, sessions) {
+        for (var i = 0; i < sessions.length; i++) {
+            sessionStore.get(sessions[i], function() {} );
+        }
+    });
+}
+
+
+
 getGuests();
+sessionCleaup();

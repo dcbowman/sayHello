@@ -1,4 +1,4 @@
-module.exports = function Cart(guestTable){
+module.exports = function Table(guestTable){
 	this.person= guestTable.items;
 
 	this.add = function(name, id){
