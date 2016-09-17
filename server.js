@@ -30,7 +30,7 @@ var PORT = process.env.PORT || 3000; // Sets an initial port.
 
 //------heroku database config--------
 //define local MongoDB URI
-var databaseUrl = 'mongodb://localhost/sayHello';
+var databaseUrl = 'mongodb://heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456.mlab.com:29456/heroku_3cqlgkm3';
 if(process.env.MONGODB_URI){
 	mongoose.connect(process.env.MONGODB_URI);
 }
@@ -85,7 +85,7 @@ app.use(passport.session());
 //static file support, makes it accessible
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/assets')));
-app.use(express.static(path.join(__dirname, '../public/assets')));
+
 //sets global variable to ensure that pages that need authentication are protected
 app.use(function(req, res, next){
 	res.locals.login = req.isAuthenticated();
