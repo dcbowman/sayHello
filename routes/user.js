@@ -16,7 +16,7 @@ router.use(csrfProtection);
 
 
 //database configuration
-var databaseUrl = "sayHello";
+var databaseUrl = "mongodb://heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456.mlab.com:29456/heroku_3cqlgkm3";
 var collections = ["guests"];
 
 

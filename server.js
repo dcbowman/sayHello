@@ -20,7 +20,6 @@ var databaseUrl = 'mongodb://heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456
 var db = mongojs(databaseUrl, collections);
 
 //routes
-
 var userRoutes = require('./routes/user.js');
 var routes = require('./routes/controller.js');
 
@@ -28,9 +27,6 @@ var routes = require('./routes/controller.js');
 var app = express();
 var PORT = process.env.PORT || 3000; // Sets an initial port. 
 
-
-
-//var db = mongoose.connection;
 //show any mongoose errors
 db.on('error', function (err){
 	console.log('Mongojs Error: ', err);
