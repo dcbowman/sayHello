@@ -15,7 +15,7 @@ var validator = require('express-validator');
 //database configuration
 var databaseUrl = "sayHello";
 var collections = ["guests"];
-
+var databaseUrl = 'mongodb://heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456.mlab.com:29456/heroku_3cqlgkm3';
 // use mongojs to hook the database to the db variable 
 var db = mongojs(databaseUrl, collections);
 
@@ -28,16 +28,7 @@ var routes = require('./routes/controller.js');
 var app = express();
 var PORT = process.env.PORT || 3000; // Sets an initial port. 
 
-//------heroku database config--------
-//define local MongoDB URI
-var databaseUrl = 'mongodb://heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456.mlab.com:29456/heroku_3cqlgkm3';
-if(process.env.MONGODB_URI){
-	mongoose.connect(process.env.MONGODB_URI);
-}
-else{
-	mongoose.connect(databaseUrl);
-}
-//-----
+
 
 //var db = mongoose.connection;
 //show any mongoose errors
