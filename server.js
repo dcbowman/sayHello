@@ -63,6 +63,8 @@ require('./config/passport');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+
+
 //configures app for morgan, body parser
 app.use(logger('dev'));
 app.use(bodyParser.json());
