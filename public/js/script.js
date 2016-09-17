@@ -9,7 +9,7 @@ $('#addGuest').on('click', function(){
       email: $('#email').val(),
       position: $('#position').val(),
       table: $('#table').val(),
-      linkedin: $('#linked').val(),
+      linkedin: $('#linkedin').val(),
       imagePath: $('#image').val()
 
     }
@@ -26,7 +26,7 @@ $('#addGuest').on('click', function(){
     $('#image').val("");
   }
   );
- 
+ });
 
 
 function getGuests(){
@@ -38,7 +38,5 @@ function getGuests(){
     $('#masterList').prepend('<tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Table</th></tr>');
   });
 }
-
-
 
 getGuests();

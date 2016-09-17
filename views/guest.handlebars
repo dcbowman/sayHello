@@ -1,22 +1,21 @@
+<section class="section-divider textdivider divider4">
 <div class="container" id="team" name="team">
     <br>
-    <br>
-    <br>
     <div class="row white centered">
-        <h1 class="centered">Say Hello to:</h1>
+        <h2 class="centered">Say Hello to:</h2>
         <hr>
-        <br>
-        <br>
-        
+    
+    </div>
+    
 {{# each guests}}
-   <div class = "row white centered">
+   <div class= "row-sm-12">
    {{# each this}}
-   	 <div class="col-lg-3">
+   	 <div class="col-sm-4">
      <img class="img img-circle" src="{{this.imagePath}}" height="120px" width="120px" alt="">
           <br>
-          <h4><b>{{this.firstName}}{{this.lastName}}</b></h4>
+          <h4><b>{{this.firstName}}  {{this.lastName}}</b></h4>
           <a href="{{this.linkedin}}" ><img src="img/linkedin.png" height = "20px" width="20px"></a>
-          <p>position</p>
+          <p>{{this.position}}</p>
           <p>Table number: {{this.table}}</p>
       </div><!-- col-lg-3 -->
    
@@ -25,4 +24,8 @@
 </div><!--container-->
 {{/each}}
 </div>
+</section>
+
+
+
 
