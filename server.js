@@ -30,7 +30,7 @@ var PORT = process.env.PORT || 3000; // Sets an initial port.
 
 //------heroku database config--------
 //define local MongoDB URI
-var databaseUrl = 'mongodb://localhost/sayHello';
+var databaseUrl = 'mongodb://heroku_3cqlgkm3:e68dctgsrooajdsoo2l6ovel73@ds029456.mlab.com:29456/heroku_3cqlgkm3';
 if(process.env.MONGODB_URI){
 	mongoose.connect(process.env.MONGODB_URI);
 }
