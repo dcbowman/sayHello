@@ -23,9 +23,6 @@ var collections = ["guests"];
 // use mongojs to hook the database to the db variable 
 var db = mongojs(databaseUrl, collections);
 
-// router.get('/table', function(req, res, next){
-// 	res.render('user/profile');
-// });
 
 router.get('/logout', function(req, res, next){
 	req.logut();
@@ -68,19 +65,10 @@ router.get('logout', function(req, res, next){
 	 res.redirect('/');
 });
 
-// router.get('/table/:email', function (req, res){
-// 	db.guests.find({'email': (req.params.email)}, function
-// 		if (err){
-// 			console.log(err);
-// 		}else{
 
-// 		}
-// 		)
-
-// })
 
 router.get('/table', function(req, res, next){
-	db.guests.find({'table':1}).forEach(function(err, found){
+	db.guests.find({table: 1}).forEach(function(err, found){
 		if (err) {
 			console.log(err);
 		}

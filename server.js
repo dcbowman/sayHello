@@ -26,7 +26,7 @@ var routes = require('./routes/controller.js');
 
 // Create Instance of Express
 var app = express();
-var PORT = process.env.MONGODB_URI || 3000; // Sets an initial port. 
+var PORT = process.env.PORT || 3000; // Sets an initial port. 
 
 //------heroku database config--------
 //define local MongoDB URI
@@ -85,7 +85,7 @@ app.use(passport.session());
 //static file support, makes it accessible
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/assets')));
-
+app.use(express.static(path.join(__dirname, '../public/assets')));
 //sets global variable to ensure that pages that need authentication are protected
 app.use(function(req, res, next){
 	res.locals.login = req.isAuthenticated();
